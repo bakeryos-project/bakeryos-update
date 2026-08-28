@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=BakeryOS Update
+Exec=bakeryos-update
+Icon=org.bakeryos.update
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

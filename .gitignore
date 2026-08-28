@@ -1,0 +1,8 @@
+build
+target
+pkg
+**/bakeryos-dev-wizard
+*.zst
+builddir
+.flatpak-builder
+*.flatpak

@@ -1,0 +1,153 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $MainWindow: Adw.ApplicationWindow {
+    title: _("BakeryOS Update");
+    default-width: 900;
+    default-height: 650;
+
+    content: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {}
+        content: Gtk.Box {
+
+            Gtk.Stack main_stack {
+                transition-type: crossfade;
+
+                [child]
+                Gtk.StackPage{
+                    name: "loading_layout";
+                    child:  Gtk.Box loading_layout {
+                        orientation: vertical;
+                        halign: center;
+                        valign: center;
+                        spacing: 12;
+
+                        Adw.Spinner {
+                            width-request: 32;
+                            height-request: 32;
+                        }
+
+                        Gtk.Label status_label {
+                            label: "Just a moment ...";
+                            styles ["dim-label"]
+                        }
+                    };
+                }
+
+                [child]
+                Gtk.StackPage{
+                    name: "update_layout";
+                    child:  Gtk.Box  {
+                        orientation: vertical;
+                        halign: center;
+                        valign: center;
+                        spacing: 12;
+
+                        Adw.Spinner {
+                            width-request: 40;
+                            height-request: 40;
+                        }
+
+                        Gtk.Label  {
+                            label: "Updating. Please wait ...";
+                            styles ["dim-label"]
+                        }
+                    };
+                }
+
+               [child]
+               Gtk.StackPage {
+                    name: "update_success_layout";
+                    child: Gtk.Box success_layout {
+                        orientation: vertical;
+                        halign: center;
+                        valign: center;
+                        spacing: 12;
+
+                        Gtk.Image {
+                            icon-name: "emblem-default-symbolic";
+                            pixel-size: 48;
+                            styles ["success"]
+                        }
+
+                        Gtk.Label  {
+                            label: "Update Successful";
+                            styles ["title-3"]
+                        }
+
+                        Gtk.Label  {
+                            label: "Your system is up to date.";
+                            styles ["dim-label"]
+                        }
+                    };
+                }
+
+               [child]
+               Gtk.StackPage {
+                    name: "update_failed_layout";
+                    child: Gtk.Box  {
+                        orientation: vertical;
+                        halign: center;
+                        valign: center;
+                        spacing: 12;
+
+                        Gtk.Image {
+                            icon-name: "dialog-error-symbolic";
+                            pixel-size: 48;
+                            styles ["error"]
+                        }
+
+                        Gtk.Label  {
+                            label: "Update Failed";
+                            styles ["title-3"]
+                        }
+
+                        Gtk.Label  {
+                            label: "Failed to update.";
+                            styles ["dim-label"]
+                        }
+                    };
+                }
+
+                [child]
+                Gtk.StackPage{
+                    name: "package_show_layout";
+                    child: Gtk.Overlay {
+
+                        Gtk.ScrolledWindow {
+                            vexpand: true;
+                            hexpand: true;
+
+                            child: Gtk.Box {
+                                orientation: vertical;
+                                margin-top: 20;
+                                margin-bottom: 80;
+                                margin-start: 20;
+                                margin-end: 20;
+                                spacing: 15;
+
+                                Adw.PreferencesGroup package_list {
+                                    title: "Packages with new updates";
+                                    description: "Select the packages below or proceed to update the entire system.";
+                                }
+                            };
+                        }
+
+                        [overlay]
+                        Gtk.Box {
+                            halign: center;
+                            valign: end;
+                            margin-bottom: 24;
+
+                            Gtk.Button update_btn {
+                                label: "Update now";
+                                css-classes: ["suggested-action", "pill", "osd"];
+                            }
+                        }
+                    };
+                }
+            }
+        };
+    };
+}

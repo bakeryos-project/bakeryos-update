@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.bakeryos.update
+Exec=@bindir@/bakeryosupdate --gapplication-service
