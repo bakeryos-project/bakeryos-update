@@ -1,7 +1,7 @@
 # Maintainer: smtdfc <me.smtdfc@gmail.com>
 
 pkgname=bakeryos-update
-pkgver=0.1.1
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="A GTK4 graphical application for BakeryOS that checks for and installs system updates. It lists packages with newer versions, lets users deselect individual packages, and requests administrator authentication when an update starts."
 arch=('x86_64')
