@@ -1,7 +1,7 @@
 # Maintainer: smtdfc <me.smtdfc@gmail.com>
 
 pkgname=bakeryos-update
-pkgver=0.1.7
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="A GTK4 graphical application for BakeryOS that checks for and installs system updates. It lists packages with newer versions, lets users deselect individual packages, and requests administrator authentication when an update starts."
 arch=('x86_64')
@@ -11,6 +11,7 @@ depends=('gtk4' 'libadwaita' 'glib2')
 makedepends=('meson' 'rust' 'cargo' 'blueprint-compiler')
 source=()
 sha256sums=()
+options=(!debug !strip)
 
 build() {
     cd $startdir
