@@ -43,7 +43,10 @@ jobs:
 
       - name: Sign packages
         run: |
-          echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --detach-sign *.pkg.tar.zst
+          for pkg in $(find . -name "*.pkg.tar.zst" ! -name "*.sig"); do
+            echo "Signing $pkg..."
+            echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --detach-sign "$pkg"
+          done
 
       - name: Configure Rclone and Sync to R2
         run: |
