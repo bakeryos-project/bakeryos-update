@@ -9,7 +9,6 @@ jobs:
   call-build-workflow:
     uses: bakeryos-project/ci/.github/workflows/build-package.yml@main
     secrets:
-    
       DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
       GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
