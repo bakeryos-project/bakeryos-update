@@ -3,7 +3,7 @@ use std::{
     process::{Command, Stdio},
 };
 
-pub fn get_update_avaliable_package() -> Result<Vec<String>, String> {
+pub fn get_update_available_package() -> Result<Vec<String>, String> {
     let output = Command::new("checkupdates").output();
 
     let output = match output {
@@ -65,6 +65,7 @@ pub fn update_package(packages: Vec<String>) -> Result<(), String> {
                 }
                 Err(e) => {
                     eprintln!("Error reading stdout: {}", e);
+                    return Err(e.to_string());
                 }
             }
         }
