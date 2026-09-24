@@ -2,7 +2,7 @@
 
 pkgname=bakeryos-update
 pkgver=0.1.3
-pkgrel=1
+pkgrel=2
 pkgdesc="A GTK4 graphical application for BakeryOS that checks for and installs system updates. It lists packages with newer versions, lets users deselect individual packages, and requests administrator authentication when an update starts."
 arch=('x86_64')
 url="https://github.com/bakeryos-project/bakeryos-update"
