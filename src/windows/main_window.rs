@@ -5,7 +5,7 @@ use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::{gio, glib};
 
-use crate::helpers::{get_update_avaliable_package, update_package};
+use crate::helpers::{get_update_available_package, update_package};
 use crate::models::event::Event;
 
 mod imp {
