@@ -8,3 +8,5 @@ on:
 jobs:
   call-build-workflow:
     uses: bakeryos-project/ci/.github/workflows/build-package.yml@main
+    secrets:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
