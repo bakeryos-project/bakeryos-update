@@ -88,7 +88,7 @@ impl imp::MainWindow {
         let sender = sender.clone();
 
         gio::spawn_blocking(move || {
-            let result = get_update_avaliable_package();
+            let result = get_update_available_package();
             match result {
                 Ok(packages) => {
                     let _ = sender.send_blocking(Event::PackageLoadedSuccess(packages));
