@@ -16,19 +16,3 @@ jobs:
       R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
       R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
       R2_BUCKET: ${{ secrets.R2_BUCKET }}
-
-  debug-inspect:
-    needs: call-build-workflow
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download built artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Inspect current workspace
-        run: |
-          echo "🔥 Checking workspace contents..."
-          pwd
-          ls -la
-          
-          echo "🔥 Searching for packages..."
-          find . -name "*.pkg.tar.zst" -o -name "*.db" -o -name "*.files"
