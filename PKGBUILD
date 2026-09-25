@@ -1,7 +1,7 @@
 # Maintainer: smtdfc <me.smtdfc@gmail.com>
 
 pkgname=bakeryos-update
-pkgver=1.0.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="A GTK4 graphical application for BakeryOS that checks for and installs system updates. It lists packages with newer versions, lets users deselect individual packages, and requests administrator authentication when an update starts."
 arch=('x86_64')
@@ -23,4 +23,5 @@ build() {
 package() {
     cd $startdir
     meson install -C build --no-rebuild --destdir "$pkgdir"
+    install -Dm644 "${startdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
