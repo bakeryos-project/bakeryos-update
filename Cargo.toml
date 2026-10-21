@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-gettext-rs = { version = "0.7", features = ["gettext-system"] }
+gettext-rs = { version = "0.8", features = ["gettext-system"] }
 gtk = { version = "0.9", package = "gtk4", features = ["gnome_47"] }
 async-channel = "2.5.0"
 
